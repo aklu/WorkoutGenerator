@@ -93,8 +93,15 @@ const workoutNine = [
 ];
 
 const handleOnClick= () => {
-  alert("Hey");
-  
+  const randomOne = workoutOne[Math.floor(Math.random() * workoutOne.length)];
+  const randomTwo = workoutTwo[Math.floor(Math.random() * workoutTwo.length)];
+  const randomThree = workoutThree[Math.floor(Math.random() * workoutThree.length)];
+  const randomFour = workoutFour[Math.floor(Math.random() * workoutFour.length)];
+  const randomFive = workoutFive[Math.floor(Math.random() * workoutFive.length)];
+  const randomSix = workoutSix[Math.floor(Math.random() * workoutSix.length)];
+  const randomSeven = workoutSeven[Math.floor(Math.random() * workoutSeven.length)];
+  const randomEight = workoutEight[Math.floor(Math.random() * workoutEight.length)];
+  const randomNine = workoutNine[Math.floor(Math.random() * workoutNine.length)];
 }
 
 
@@ -107,44 +114,27 @@ const IndexPage = ({ data }) => (
       <div>
         <button onClick={handleOnClick} >Generate Workout!</button>
       </div>
-      {/* {data.allDatoCmsWork.edges.map(({ node: work }) => (
-        <div key={work.id} className="showcase__item">
-          <figure className="card">
-            <Link to={`/works/${work.slug}`} className="card__image">
-              <Img fluid={work.coverImage.fluid} />
-            </Link>
-            <figcaption className="card__caption">
-              <h6 className="card__title">
-                <Link to={`/works/${work.slug}`}>{work.title}</Link>
-              </h6>
-              <div className="card__description">
-                <p>{work.excerpt}</p>
-              </div>
-            </figcaption>
-          </figure>
-        </div>
-      ))} */}
+      <div>
+        <h1>Round 1 of your workout:</h1>
+        <p>{randomOne}</p>
+        <h1>Round 2 of your workout:</h1>
+        <p>{randomTwo}</p>
+        <h1>Round 3 of your workout:</h1>
+        <p>{randomThree}</p>
+        <h1>Round 4 of your workout:</h1>
+        <p>{randomFour}</p>
+        <h1>Round 5 of your workout:</h1>
+        <p>{randomFive}</p>
+        <h1>Round 6 of your workout:</h1>
+        <p>{randomSix}</p>
+        <h1>Round 7 of your workout:</h1>
+        <p>{randomSeven}</p>
+        <h1>Round 8 of your workout:</h1>
+        <p>{randomEight}</p>
+        <h1>Round 9 of your workout:</h1>
+        <p>{randomNine}</p>
+      </div>
   </Layout>
 )
 
 export default IndexPage
-
-export const query = graphql`
-  query IndexQuery {
-    allDatoCmsWork(sort: { fields: [position], order: ASC }) {
-      edges {
-        node {
-          id
-          title
-          slug
-          excerpt
-          coverImage {
-            fluid(maxWidth: 450, imgixParams: { fm: "jpg", auto: "compress" }) {
-              ...GatsbyDatoCmsSizes
-            }
-          }
-        }
-      }
-    }
-  }
-`
