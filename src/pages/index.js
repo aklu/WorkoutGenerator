@@ -42,14 +42,6 @@ const workoutFour = [
   "10 Jab/Cross/Hook Combos, 10 Squat Jumps",
   "10 Alternating Side Kicks, 10 Plank Rotations"
 ];
-const workoutFour = [
-  "20 Tricep Dips, 5 Push-ups",
-  "Total Crab Punches",
-  "25 Alternating Lunge Kicks, 10 Sit-ups",
-  "Punch 5 Times, Switch Stance",
-  "10 Jab/Cross/Hook Combos, 10 Squat Jumps",
-  "10 Alternating Side Kicks, 10 Plank Rotations"
-];
 const workoutFive = [
   "20 Tricep Dips, 5 Push-ups",
   "Total Crab Punches",
