@@ -24,6 +24,7 @@ const workoutTwo = [
   "10 Jab/Cross/Hook Combos, Side Shuffle 10x (length of yoga mat or wall to wall)",
   "10 Alternating Side Kicks, 10 Plank Rotations"
 ];
+
 const workoutThree = [
   "20 Tricep Dips, 5 Push-ups",
   "Total Crab Punches",
@@ -31,7 +32,71 @@ const workoutThree = [
   "Punch 5 Times, Switch Stance",
   "10 Jab/Cross/Hook Combos, 10 Squat Jumps",
   "10 Alternating Side Kicks, 10 Plank Rotations"
-]
+];
+
+const workoutFour = [
+  "20 Tricep Dips, 5 Push-ups",
+  "Total Crab Punches",
+  "25 Alternating Lunge Kicks, 10 Sit-ups",
+  "Punch 5 Times, Switch Stance",
+  "10 Jab/Cross/Hook Combos, 10 Squat Jumps",
+  "10 Alternating Side Kicks, 10 Plank Rotations"
+];
+const workoutFour = [
+  "20 Tricep Dips, 5 Push-ups",
+  "Total Crab Punches",
+  "25 Alternating Lunge Kicks, 10 Sit-ups",
+  "Punch 5 Times, Switch Stance",
+  "10 Jab/Cross/Hook Combos, 10 Squat Jumps",
+  "10 Alternating Side Kicks, 10 Plank Rotations"
+];
+const workoutFive = [
+  "20 Tricep Dips, 5 Push-ups",
+  "Total Crab Punches",
+  "25 Alternating Lunge Kicks, 10 Sit-ups",
+  "Punch 5 Times, Switch Stance",
+  "10 Jab/Cross/Hook Combos, 10 Squat Jumps",
+  "10 Alternating Side Kicks, 10 Plank Rotations"
+];
+const workoutSix = [
+  "20 Tricep Dips, 5 Push-ups",
+  "Total Crab Punches",
+  "25 Alternating Lunge Kicks, 10 Sit-ups",
+  "Punch 5 Times, Switch Stance",
+  "10 Jab/Cross/Hook Combos, 10 Squat Jumps",
+  "10 Alternating Side Kicks, 10 Plank Rotations"
+];
+const workoutSeven = [
+  "20 Tricep Dips, 5 Push-ups",
+  "Total Crab Punches",
+  "25 Alternating Lunge Kicks, 10 Sit-ups",
+  "Punch 5 Times, Switch Stance",
+  "10 Jab/Cross/Hook Combos, 10 Squat Jumps",
+  "10 Alternating Side Kicks, 10 Plank Rotations"
+];
+const workoutEight = [
+  "20 Tricep Dips, 5 Push-ups",
+  "Total Crab Punches",
+  "25 Alternating Lunge Kicks, 10 Sit-ups",
+  "Punch 5 Times, Switch Stance",
+  "10 Jab/Cross/Hook Combos, 10 Squat Jumps",
+  "10 Alternating Side Kicks, 10 Plank Rotations"
+];
+
+const workoutNine = [
+  "20 Tricep Dips, 5 Push-ups",
+  "Total Crab Punches",
+  "25 Alternating Lunge Kicks, 10 Sit-ups",
+  "Punch 5 Times, Switch Stance",
+  "10 Jab/Cross/Hook Combos, 10 Squat Jumps",
+  "10 Alternating Side Kicks, 10 Plank Rotations"
+];
+
+const handleOnClick= () => {
+  alert("Hey");
+  
+}
+
 
 const IndexPage = ({ data }) => (
   <Layout>
@@ -40,7 +105,7 @@ const IndexPage = ({ data }) => (
         <p>Simple, just click the button that says "Generate Workout!". The tab will generate 9 rounds of workouts, each 3 minutes long. Good luck in your workout!</p>
       </div>
       <div>
-        <button>Generate Workout!</button>
+        <button onClick={handleOnClick} >Generate Workout!</button>
       </div>
       {/* {data.allDatoCmsWork.edges.map(({ node: work }) => (
         <div key={work.id} className="showcase__item">
