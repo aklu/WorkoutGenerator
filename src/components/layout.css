@@ -3,6 +3,23 @@ html {
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
 }
+.button {
+  text-align: center;
+}
+.workoutDisplay {
+  padding: 3%;
+  text-align: center!;
+}
+.workoutSections {
+  width: 30%;
+  float: left;
+  padding: 2%
+}
+footer {
+  clear: left;
+  border-top: 1px solid black;
+  padding-top: 2%
+}
 body {
   margin: 0;
   -webkit-font-smoothing: antialiased;
@@ -620,3 +637,5 @@ pre tt:after {
     font-size: 100%;
   }
 }
+
+

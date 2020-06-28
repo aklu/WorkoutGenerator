@@ -1,5 +1,6 @@
-import React from 'react'
-import Layout from "../components/layout"
+import React from 'react';
+import Layout from "../components/layout";
+import "../components/layout.css";
 
 const workoutOne = [
   "Total Jumping Jacks in 3 Minutes",
@@ -100,7 +101,7 @@ const handleOnClick= () => {
   randomSeven = workoutSeven[Math.floor(Math.random() * workoutSeven.length)];
   randomEight = workoutEight[Math.floor(Math.random() * workoutEight.length)];
   randomNine = workoutNine[Math.floor(Math.random() * workoutNine.length)];
-  alert(randomOne + randomFive);
+  // alert(randomOne + randomFive);
 }
 
 
@@ -108,31 +109,48 @@ const IndexPage = () => (
   <Layout>
       <div class="container">
         <h1>How does this site work?</h1>
-        <p>Simple, just click the button that says "Generate Workout!". The tab will generate 9 rounds of workouts, each 3 minutes long. Good luck in your workout!</p>
+        <p>Simple, just click the button that says "Generate Workout!". This button will generate 9 rounds of workouts, each 3 minutes long. Good luck in your workout!</p>
       </div>
-      <div>
+      <div class="button">
         <button onClick={handleOnClick}>Generate Workout!</button>
       </div>
-      <div>
-        <h2>Round 1 of your workout:</h2>
-        <p>{randomOne}</p>
-        <h2>Round 2 of your workout:</h2>
-        <p>{randomTwo}</p>
-        <h2>Round 3 of your workout:</h2>
-        <p>{randomThree}</p>
-        <h2>Round 4 of your workout:</h2>
-        <p>{randomFour}</p>
-        <h2>Round 5 of your workout:</h2>
-        <p>{randomFive}</p>
-        <h2>Round 6 of your workout:</h2>
-        <p>{randomSix}</p>
-        <h2>Round 7 of your workout:</h2>
-        <p>{randomSeven}</p>
-        <h2>Round 8 of your workout:</h2>
-        <p>{randomEight}</p>
-        <h2>Round 9 of your workout:</h2>
-        <p>{randomNine}</p>
-
+      <div class="workoutDisplay">
+        <div class="workoutSections">
+          <h2>Round 1:</h2>
+          <p>{randomOne}</p>
+        </div>
+        <div class="workoutSections">
+          <h2>Round 2:</h2>
+          <p>{randomTwo}</p>
+        </div>
+        <div class="workoutSections">
+          <h2>Round 3:</h2>
+          <p>{randomThree}</p>
+        </div>
+        <div class="workoutSections">
+          <h2>Round 4:</h2>
+          <p>{randomFour}</p>
+        </div>
+        <div class="workoutSections">
+          <h2>Round 5:</h2>
+          <p>{randomFive}</p>
+        </div>
+        <div class="workoutSections">
+          <h2>Round 6:</h2>
+          <p>{randomSix}</p>
+        </div>
+        <div class="workoutSections">
+          <h2>Round 7:</h2>
+          <p>{randomSeven}</p>
+        </div>
+        <div class="workoutSections">
+          <h2>Round 8:</h2>
+          <p>{randomEight}</p>
+        </div>
+        <div class="workoutSections">
+          <h2>Round 9:</h2>
+          <p>{randomNine}</p>
+        </div>
       </div>
       {/* {data.allDatoCmsWork.edges.map(({ node: work }) => (
         <div key={work.id} className="showcase__item">
