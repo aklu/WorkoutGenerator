@@ -7,13 +7,24 @@ html {
   text-align: center;
 }
 .workoutDisplay {
-  padding: 3%;
-  text-align: center!;
+  display: inline-block;
+  text-align: center;
 }
 .workoutSections {
-  width: 30%;
-  float: left;
-  padding: 2%
+  display: inline-block;
+  width: 33.33%;
+  padding: 3%;
+  vertical-align: top;
+
+}
+.workoutDisplay h2 {
+  background-color: lightgray;
+  border: .5px solid black;
+}
+.workoutSections p {
+  text-align: left;
+  height: 100%;
+  font-size: 20px;
 }
 footer {
   clear: left;
