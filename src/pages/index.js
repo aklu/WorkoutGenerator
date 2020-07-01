@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Layout from "../components/layout";
 import "../components/layout.css";
+import { array } from 'prop-types';
 
 const workouts = [
   {
@@ -94,73 +95,76 @@ const workouts = [
       "25 Alternating Lunge Kicks, 10 Sit-ups",
       "Punch 5 Times, Switch Stance",
       "10 Jab/Cross/Hook Combos, 10 Squat Jumps",
-      "10 Alternating Side Kicks, 10 Plank Rotations"]
+      "This is the last one"]
   }
 ];
 
-const [wrkout, setWorkout] = useState();
+let individualWorkout = [];
 
-const handleOnClick = () => {
-  const len = workouts.length;
-  setWorkout(Math.floor(Math.random() * len));
-}
+function handleOnClick(workouts) {
+  individualWorkout = [];
+  workouts.forEach((w)=>{
+    individualWorkout.push({id: w.id, workout: w.workout[Math.floor(Math.random() * array.length)]});
+  })
+  return individualWorkout;
+};
 
 const IndexPage = () => (
   <Layout>
-      <div class="container">
+      <div className="container">
         <h1>How does this site work?</h1>
         <p>Simple, just click the button that says "Generate Workout!". This button will generate 9 rounds of workouts, each 3 minutes long.</p>
       </div>
-      <div class="button">
-        <button onClick={handleOnClick}>Generate Workout!</button>
+      <div className="button">
+        <button onClick={() => handleOnClick(workouts)}>Generate Workout!</button>
+      </div>
+      <div className="workoutDisplay">
+        {individualWorkout.map(wrk => (
+          <div className="workoutSections">
+            <h2>Round {wrk.id}</h2>
+            <p>{wrk.workout}</p>
+          </div>
+      ))}
       </div>
 
-      <div class="workoutDisplay">
-        <div class="workoutSections">
-          {/* {workouts.map((wk, i)=>(
-            <h2>Round {i}</h2>
-            {wk.workout.map((wrkt, index)=>(
-              <p></p>
-            ))}
-          </div>
-          ))} */}
-          <h2>Round </h2>
-          {/* <h2>Round 1:</h2>
-          <p>{}</p> */}
+        
+          
+          {/* <h2>Round </h2>
+          <p>{}</p>
         </div>
-        <div class="workoutSections">
+        <div className="workoutSections">
           <h2>Round 2:</h2>
           <p>{}</p>
         </div>
-        <div class="workoutSections">
+        <div className="workoutSections">
           <h2>Round 3:</h2>
           <p>{}</p>
         </div>
-        <div class="workoutSections">
+        <div className="workoutSections">
           <h2>Round 4:</h2>
           <p>{}</p>
         </div>
-        <div class="workoutSections">
+        <div className="workoutSections">
           <h2>Round 5:</h2>
           <p>{}</p>
         </div>
-        <div class="workoutSections">
+        <div className="workoutSections">
           <h2>Round 6:</h2>
           <p>{}</p>
         </div>
-        <div class="workoutSections">
+        <div className="workoutSections">
           <h2>Round 7:</h2>
           <p>{}</p>
         </div>
-        <div class="workoutSections">
+        <div className="workoutSections">
           <h2>Round 8:</h2>
           <p>{}</p>
         </div>
-        <div class="workoutSections">
+        <div className="workoutSections">
           <h2>Round 9:</h2>
           <p>{}</p>
-        </div>
-      </div>
+        </div> */}
+      {/* </div> */}
       {/* {data.allDatoCmsWork.edges.map(({ node: work }) => (
         <div key={work.id} className="showcase__item">
           <figure className="card">
