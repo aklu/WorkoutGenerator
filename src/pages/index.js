@@ -1,8 +1,10 @@
-import React from 'react';
+import React, {useState, Component} from 'react';
 import Layout from "../components/layout";
 import "../components/layout.css";
 import { array } from 'prop-types';
 
+class App extends Component {
+render() {
 const workouts = [
   {
     id: 1,
@@ -98,91 +100,33 @@ const workouts = [
       "This is the last one"]
   }
 ];
-
-let individualWorkout = [];
+const [wkt, setWkt] = useState(null);
 
 function handleOnClick(workouts) {
-  individualWorkout = [];
   workouts.forEach((w)=>{
     individualWorkout.push({id: w.id, workout: w.workout[Math.floor(Math.random() * array.length)]});
   })
-  return individualWorkout;
+
+  setWkt(individualWorkout);
 };
 
-const IndexPage = () => (
+return(
   <Layout>
       <div className="container">
         <h1>How does this site work?</h1>
         <p>Simple, just click the button that says "Generate Workout!". This button will generate 9 rounds of workouts, each 3 minutes long.</p>
       </div>
       <div className="button">
-        <button onClick={() => handleOnClick(workouts)}>Generate Workout!</button>
+        <button onClick={handleOnClick(workouts)}>Generate Workout!</button>
       </div>
       <div className="workoutDisplay">
-        {individualWorkout.map(wrk => (
+        {wrk.map((w) => (
           <div className="workoutSections">
-            <h2>Round {wrk.id}</h2>
-            <p>{wrk.workout}</p>
+            <h2>Round {w.id}</h2>
+            <p>{w.workout}</p>
           </div>
-      ))}
+        ))}
       </div>
-
-        
-          
-          {/* <h2>Round </h2>
-          <p>{}</p>
-        </div>
-        <div className="workoutSections">
-          <h2>Round 2:</h2>
-          <p>{}</p>
-        </div>
-        <div className="workoutSections">
-          <h2>Round 3:</h2>
-          <p>{}</p>
-        </div>
-        <div className="workoutSections">
-          <h2>Round 4:</h2>
-          <p>{}</p>
-        </div>
-        <div className="workoutSections">
-          <h2>Round 5:</h2>
-          <p>{}</p>
-        </div>
-        <div className="workoutSections">
-          <h2>Round 6:</h2>
-          <p>{}</p>
-        </div>
-        <div className="workoutSections">
-          <h2>Round 7:</h2>
-          <p>{}</p>
-        </div>
-        <div className="workoutSections">
-          <h2>Round 8:</h2>
-          <p>{}</p>
-        </div>
-        <div className="workoutSections">
-          <h2>Round 9:</h2>
-          <p>{}</p>
-        </div> */}
-      {/* </div> */}
-      {/* {data.allDatoCmsWork.edges.map(({ node: work }) => (
-        <div key={work.id} className="showcase__item">
-          <figure className="card">
-            <Link to={`/works/${work.slug}`} className="card__image">
-              <Img fluid={work.coverImage.fluid} />
-            </Link>
-            <figcaption className="card__caption">
-              <h6 className="card__title">
-                <Link to={`/works/${work.slug}`}>{work.title}</Link>
-              </h6>
-              <div className="card__description">
-                <p>{work.excerpt}</p>
-              </div>
-            </figcaption>
-          </figure>
-        </div>
-      ))} */}
   </Layout>
-)
-
-export default IndexPage
+  );
+}}; export default App
