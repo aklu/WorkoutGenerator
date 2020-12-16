@@ -1,11 +1,9 @@
-import React, {useState, Component} from 'react';
+import React, { Component } from 'react';
 import Layout from "../components/layout";
 import "../components/layout.css";
 import { array } from 'prop-types';
 
-class App extends Component {
-render() {
-const workouts = [
+let workouts = [
   {
     id: 1,
     workout: [
@@ -100,33 +98,45 @@ const workouts = [
       "This is the last one"]
   }
 ];
-const [wkt, setWkt] = useState(null);
 
-function handleOnClick(workouts) {
-  workouts.forEach((w)=>{
-    individualWorkout.push({id: w.id, workout: w.workout[Math.floor(Math.random() * array.length)]});
-  })
+class App extends Component {
+  state = {
+    wkt: []
+  }
 
-  setWkt(individualWorkout);
-};
+  individualWorkouts = [];
 
-return(
-  <Layout>
-      <div className="container">
-        <h1>How does this site work?</h1>
-        <p>Simple, just click the button that says "Generate Workout!". This button will generate 9 rounds of workouts, each 3 minutes long.</p>
-      </div>
-      <div className="button">
-        <button onClick={handleOnClick(workouts)}>Generate Workout!</button>
-      </div>
-      <div className="workoutDisplay">
-        {wrk.map((w) => (
-          <div className="workoutSections">
-            <h2>Round {w.id}</h2>
-            <p>{w.workout}</p>
-          </div>
-        ))}
-      </div>
-  </Layout>
-  );
+  handleOnClick = (workouts) => {
+    this.setState( this.wkt, this.generateRandomWorkout({workouts}));
+  }
+
+  generateRandomWorkout = () => {
+    let wkt = [];
+    workouts.forEach((w)=>{
+      wkt.push({id: w.id, workout: w.workout[Math.floor(Math.random() * array.length)]});
+    })
+    
+    this.setState({wkt})
+  }
+
+render() {
+  return(
+    <Layout>
+        <div className="container">
+          <h1>How does this site work?</h1>
+          <p>Simple, just click the button that says "Generate Workout!". This button will generate 9 rounds of workouts, each 3 minutes long.</p>
+        </div>
+        <div className="button">
+          <button onClick={() => this.handleOnClick(workouts) }>Generate Workout!</button>
+        </div>
+        <div className="workoutDisplay">
+          { this.state.wkt.map((w) => (
+            <div className="workoutSections">
+              <h2>Round {w.id}</h2>
+              <p>{w.workout}</p>
+            </div>
+          ))}
+        </div>
+    </Layout>
+    );
 }}; export default App
